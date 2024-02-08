@@ -15,3 +15,17 @@ What is a schema: mapping of different collection of keys from mongo to differen
 
 Syntax to run:
 node -i -e "$(<index.js)" //this lets us run js code (i.e object) on node, then we use the method save() to send it over to mongoDB.
+
+
+//insertMany() returns a promise, and directly sends data to MongodDB. So we do not have to use save() method in node. However, when we instantiate single class we have to use save() method to send JS obj to DB.
+
+//find() takes time to search for result. So we can use CB(), however it is not ideal. The results of find() method is called mongoose query, although not a promise, it is a thenable object. So we can chain .then.
+
+ .exec() method gives us full promise. It gives you better stack trace, so we can debug better by seeing what went wrong.
+
+db.movies.find() gives us whole of info, however we are only interested in specific data. So we can attach .then and print data.
+Movie.find().then(data=> console.log(data))
+
+Movie.find({year: {$gts:1990}}).then(data=>console.log(data))
+
+Movie.findById() //commonly used method in express
