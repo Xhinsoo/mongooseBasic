@@ -6,3 +6,12 @@ npm i mongoose
 
 'mongodb://127.0.0.1:27017/test' 
 This URI specifies where to find mongodb locally i.e. its being served on my machine, and which DB to use. It specifies test db to be used. If it doesnt exist, it will make it. If it exists, it will use it.
+
+The central goal of using mongoose is to have easier way to interact with MongoDB from JS land.
+Modals are JS classes that we make with Mongoose, that represent collection of info in MongoDB.
+
+First thing to define modal, is by defining schema.
+What is a schema: mapping of different collection of keys from mongo to different types in JS. We take data from Mongo which have different types of data which other languages such as Js may or may not have. Therefore, in schema we can specify properties data types.
+
+Syntax to run:
+node -i -e "$(<index.js)" //this lets us run js code (i.e object) on node, then we use the method save() to send it over to mongoDB.
